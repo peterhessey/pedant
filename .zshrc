@@ -87,8 +87,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Created by `pipx` on 2024-06-27 07:52:19
-export PATH="$PATH:/home/peter/.local/bin"
+# set up local bin
+export PATH="$PATH:/home/$USER/.local/bin"
 
 ## poetry
 
