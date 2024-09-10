@@ -1,0 +1,6 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Peter Hessey
+	email = peter.hessey@hotmail.com
+[core]
+	editor = vim
