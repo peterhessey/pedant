@@ -54,13 +54,28 @@ pyenv() {
     pyenv "$@"
 }
 
-# npm
+# nvm
 
 export NVM_DIR="$HOME/.nvm"
-# uncomment if you actually want nvm, however it makes the zshrc startup painfully slow
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+
+# Get the OS type
+OS=$(uname)
+
+if [ "$OS" = "Linux" ]; then
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+elif [ "$OS" = "Darwin" ]; then
+  # was making startup slow, seems okay now?
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+else
+    echo "Unknown operating system: $OS"
+fi
+
+
+
+export NVM_DIR="$HOME/.nvm"
 # aliases
 
 ## general
@@ -122,6 +137,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ## nvim
 
 alias n="nvim ."
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 
 # also uncomment this 
