@@ -101,8 +101,6 @@ def main():
         with open(log_path, "w", encoding="utf-8") as log_file:
             log_file.write(template)
 
-    subprocess.run(["nvim", "~/Documents/Notes"])
-
 
 if __name__ == "__main__":
     main()
