@@ -10,7 +10,7 @@
 #
 # setopt XTRACE
 
-# this stops bugs in
+# this stops bugs in ssh terminal
 export TERM=xterm-256color
 
 

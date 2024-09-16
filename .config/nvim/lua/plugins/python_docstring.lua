@@ -1,3 +1,4 @@
-return {
-  "kkoomen/vim-doge",
-}
+return {}
+-- return {
+--   "kkoomen/vim-doge",
+-- }
