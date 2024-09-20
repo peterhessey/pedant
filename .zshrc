@@ -80,7 +80,7 @@ export NVM_DIR="$HOME/.nvm"
 
 ## general
 
-alias newlog="python ~/scripts/new_md_log.py"
+alias newlog="python3 ~/scripts/new_md_log.py"
 alias st="speedtest"
 alias cds="cd ~/scratch"
 alias c="clear"
