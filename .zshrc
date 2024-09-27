@@ -143,6 +143,13 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 
 alias pa="pants fmt :: && pants check :: && pants test ::"
 
+## key-bindings
+
+### fixing word skipping in remote terminal when using MacOS keyboard
+
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+
 # also uncomment this 
 
 # unsetopt XTRACE
