@@ -132,6 +132,8 @@ alias pou="poetry update"
 alias poi="poetry install"
 alias pob="poetry build"
 alias pocc="poetry cache clear . --all"
+
+## config stuff
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
 
 ## nvim
