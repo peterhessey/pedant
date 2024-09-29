@@ -11,7 +11,7 @@
 # setopt XTRACE
 
 # this stops bugs in ssh terminal
-# export TERM=xterm-256color
+export TERM=screen-256color
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
