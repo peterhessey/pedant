@@ -1,17 +1,11 @@
--- return {
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "tokyonight-night",
---     },
---   },
--- }
 return {
-  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "moonfly",
-    },
-  },
+  "sainnhe/everforest",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.g.everforest_enable_italic = true
+    vim.cmd("set background=dark")
+    vim.cmd("let g:everforest_background = 'hard'")
+    vim.cmd.colorscheme("everforest")
+  end,
 }
