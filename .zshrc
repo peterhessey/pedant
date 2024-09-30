@@ -126,6 +126,10 @@ export PATH="$PATH:/Users/$USER/.local/bin"
 
 ## poetry
 
+poetry_with() {
+  poetry install --with "$1"
+}
+
 alias pos="poetry shell"
 alias pol="poetry lock"
 alias pou="poetry update"
@@ -135,6 +139,9 @@ alias pocc="poetry cache clear . --all"
 
 ## config stuff
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
+alias poiw="poetry_with"
+
+
 
 ## nvim
 
