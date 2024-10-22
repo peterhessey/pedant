@@ -117,12 +117,6 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# set up local bin
-## linux
-export PATH="$PATH:/home/$USER/.local/bin"
-## macOS
-export PATH="$PATH:/Users/$USER/.local/bin"
-
 
 ## poetry
 
@@ -136,12 +130,14 @@ alias pou="poetry update"
 alias poi="poetry install"
 alias pob="poetry build"
 alias pocc="poetry cache clear . --all"
+alias poiw="poetry_with"
+
+## docker
+
+alias dc="docker compose"
 
 ## config stuff
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
-alias poiw="poetry_with"
-
-
 
 ## nvim
 
@@ -158,6 +154,14 @@ alias pa="pants fmt :: && pants check :: && pants test ::"
 
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
+
+## PATH fixing
+
+### linux
+export PATH="$PATH:/home/$USER/.local/bin"
+
+### macOS
+export PATH="$PATH:/Users/$USER/.local/bin"
 
 # also uncomment this 
 
