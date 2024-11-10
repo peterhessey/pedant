@@ -135,6 +135,7 @@ alias poiw="poetry_with"
 ## docker
 
 alias dc="docker compose"
+alias dcr="dc down -v && dc build && dc up -d"
 
 ## config stuff
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
