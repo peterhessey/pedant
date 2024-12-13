@@ -104,6 +104,7 @@ alias gcm="git commit -m"
 alias gmc="gitmoji --commit"
 alias gmac="git add -A && gitmoji --commit"
 alias gbpurge="git branch --merged | grep -v '\*' | grep -Ev '(\*|master|develop|staging)' | xargs -n 1 git branch -d"
+alias gfl="gf && gl"
 
 ### open a new branch (gnb = git new branch)
 function gnb() {
