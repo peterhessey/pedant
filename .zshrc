@@ -95,6 +95,11 @@ alias smc="git stage . && make check"
 alias mt="make test"
 alias smt="git stage . && make test"
 
+## clang
+
+### adds warning flags to all g++ commands - useful for learning
+alias g++='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -pedantic-errors'  
+
 ## extra git aliases
 
 alias gac="git add -A && git commit --amend --no-edit"
