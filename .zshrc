@@ -99,6 +99,7 @@ alias smt="git stage . && make test"
 
 ### adds warning flags to all g++ commands - useful for learning
 alias g++='g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -pedantic-errors'  
+alias g++17='g++ -std=c++17'
 
 ## extra git aliases
 
