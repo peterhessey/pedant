@@ -41,7 +41,6 @@ return {
         types = {},
       },
       integrations = {
-        telescope = true,
         nvimtree = true,
         cmp = true,
         gitsigns = true,
