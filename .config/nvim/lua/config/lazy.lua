@@ -59,3 +59,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo.wrap = true
   end,
 })
+
+-- Set python line length to 88 (ruff default + my fave)
+return require("lspconfig").pylsp.setup({
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          maxLineLength = 88,
+        },
+      },
+    },
+  },
+})
