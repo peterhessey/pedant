@@ -119,6 +119,11 @@ function gnb() {
     gpsup
 }
 
+### git + pre-commit
+
+alias gpc="git add . && pre-commit run -a"
+alias pca="pre-commit run -a"
+
 export NVM_DIR="$HOME/.nvm"
 # uncomment below to enable nvm - uncommented as it makes things slow (on MacOS)
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
