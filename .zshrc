@@ -85,6 +85,7 @@ alias st="speedtest"
 alias cds="cd ~/scratch"
 alias c="clear"
 alias ls="exa"
+alias s="kitten ssh"
 
 ## makefile
 
