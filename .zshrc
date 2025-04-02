@@ -148,6 +148,10 @@ alias pob="poetry build"
 alias pocc="poetry cache clear . --all"
 alias poiw="poetry_with"
 
+## uv
+
+alias ur="uv run"
+
 ## docker
 
 alias dc="docker compose"
