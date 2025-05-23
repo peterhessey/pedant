@@ -1,11 +1,12 @@
 import datetime
 import os
-import subprocess
-
-LOG_DIR = "/Users/peter.hessey/Documents/Notes"
+import argparse
 
 
-def get_log_template(day, month, year, new_to_do):
+DEFAULT_LOG_DIR = "/Users/peter.hessey/Documents/Notes"
+
+
+def get_log_template(day: str, month: str, year: str, new_to_do: str | None) -> str:
     if new_to_do is None:
         new_to_do = "- [ ]"
 
@@ -22,7 +23,7 @@ def get_log_template(day, month, year, new_to_do):
     return template
 
 
-def get_date_strings(minus_days=0):
+def get_date_strings(minus_days: int = 0) -> tuple[str, str, str]:
     date = datetime.date.today() - datetime.timedelta(days=minus_days)
     year = str(date.year)
     month = str(date.month)
@@ -35,17 +36,17 @@ def get_date_strings(minus_days=0):
     return day, month, year
 
 
-def get_yesterday_to_do_path():
+def get_yesterday_to_do_path(log_dir: str = DEFAULT_LOG_DIR) -> str | None:
     for i in range(365):  # only checks the past year of logs
         day, month, year = get_date_strings(minus_days=i)
-        log_path = f"{LOG_DIR}/{year}/{month}_{year[-2:]}/{day}_{month}.md"
+        log_path = f"{log_dir}/{year}/{month}_{year[-2:]}/{day}_{month}.md"
         if os.path.exists(log_path):
             return log_path
 
     return None
 
 
-def load_old_to_do_list(log_path):
+def load_old_to_do_list(log_path: str) -> str | None:
     new_to_do = ""
     if not os.path.exists(log_path):
         return None
@@ -59,21 +60,28 @@ def load_old_to_do_list(log_path):
             if lines[line_index][:5] == "- [ ]":
                 new_to_do += lines[line_index]
                 line_index += 1
-                while lines[line_index][:2] == "  ":
+                while line_index < end_index and lines[line_index][:2] == "  ":
                     new_to_do += lines[line_index]
                     line_index += 1
 
-            elif lines[line_index][:2] == "  " or lines[line_index][:5] == "- [x]":
+            elif line_index < end_index and (
+                lines[line_index][:2] == "  " or lines[line_index][:5] == "- [x]"
+            ):
                 line_index += 1
             else:
                 new_to_do += lines[line_index]
                 line_index += 1
 
-    return new_to_do[:-1]
+    return new_to_do[:-1] if new_to_do else None
 
 
-def get_new_log_path(day, month, year):
-    log_path = f"{LOG_DIR}/{year}"
+def get_new_log_path(
+    day: str,
+    month: str,
+    year: str,
+    log_dir: str = DEFAULT_LOG_DIR,
+) -> str:
+    log_path = f"{log_dir}/{year}"
     if not os.path.exists(log_path):
         os.mkdir(log_path)
 
@@ -85,13 +93,29 @@ def get_new_log_path(day, month, year):
     return log_path
 
 
-def main():
+def parse_arguments() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Create a new daily log file with to-do items from previous log"
+    )
+    parser.add_argument(
+        "--log-dir",
+        type=str,
+        default=DEFAULT_LOG_DIR,
+        help=f"Base directory for logs (default: {DEFAULT_LOG_DIR})",
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_arguments()
+    log_dir = args.log_dir
+
     day, month, year = get_date_strings()
 
-    log_path = get_new_log_path(day, month, year)
+    log_path = get_new_log_path(day, month, year, log_dir=log_dir)
 
     if not os.path.exists(log_path):
-        old_log_path = get_yesterday_to_do_path()
+        old_log_path = get_yesterday_to_do_path(log_dir=log_dir)
         if old_log_path is not None:
             new_to_do = load_old_to_do_list(old_log_path)
         else:
@@ -104,3 +128,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

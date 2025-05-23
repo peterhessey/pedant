@@ -80,7 +80,9 @@ export NVM_DIR="$HOME/.nvm"
 
 ## general
 
-alias newlog="python3 ~/scripts/new_md_log.py"
+newlog() {
+    python3 ~/scripts/new_md_log.py "$@"
+}
 alias st="speedtest"
 alias cds="cd ~/scratch"
 alias c="clear"
@@ -192,3 +194,9 @@ export PATH="$PATH:/Users/$USER/.local/bin"
 
 # unsetopt XTRACE
 # exec 2>&3 3>&-
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/peter.hessey/Downloads/google-cloud-sdk 3/path.zsh.inc' ]; then . '/Users/peter.hessey/Downloads/google-cloud-sdk 3/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/peter.hessey/Downloads/google-cloud-sdk 3/completion.zsh.inc' ]; then . '/Users/peter.hessey/Downloads/google-cloud-sdk 3/completion.zsh.inc'; fi
