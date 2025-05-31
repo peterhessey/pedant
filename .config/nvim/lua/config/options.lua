@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.opt.winbar = "%=%m %f"
+vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
