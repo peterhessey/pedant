@@ -87,6 +87,7 @@ alias st="speedtest"
 alias cds="cd ~/scratch"
 alias c="clear"
 alias ls="exa"
+alias ufw="sudo ufw"
 
 ## kitty
 alias s="kitten ssh"
