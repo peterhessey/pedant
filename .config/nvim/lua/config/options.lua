@@ -4,3 +4,6 @@
 
 vim.opt.winbar = "%=%m %f"
 vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
+
+-- Disable line wrapping globally
+vim.opt.wrap = false
