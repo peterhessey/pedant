@@ -157,6 +157,7 @@ alias poiw="poetry_with"
 ## uv
 
 alias ur="uv run"
+alias uvlf="rm uv.lock && uv lock"
 
 ## docker
 
