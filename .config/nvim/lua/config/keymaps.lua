@@ -14,3 +14,6 @@ vim.keymap.set("n", "<M-Up>", ":m .-2<CR>==", { noremap = true, silent = true, d
 vim.keymap.set("n", "<M-Down>", ":m .+1<CR>==", { noremap = true, silent = true, desc = "Move line up" })
 vim.keymap.set("v", "<M-Up>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move line up" })
 vim.keymap.set("v", "<M-Down>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move line up" })
+
+-- Zen Mode
+vim.keymap.set("n", "<leader>zm", ":ZenMode<CR>", { noremap = true, silent = true, desc = "Toggle Zen Mode" })
