@@ -172,6 +172,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias n="nvim ."
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:/opt/nvim-macos-arm64/bin"
 
 ## pants
 
@@ -202,3 +203,4 @@ if [ -f '/Users/peter.hessey/Downloads/google-cloud-sdk 3/path.zsh.inc' ]; then 
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/peter.hessey/Downloads/google-cloud-sdk 3/completion.zsh.inc' ]; then . '/Users/peter.hessey/Downloads/google-cloud-sdk 3/completion.zsh.inc'; fi
+
